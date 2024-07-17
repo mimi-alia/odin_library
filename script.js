@@ -32,13 +32,13 @@ formSubmitButton.addEventListener("click", (e) => {
 // Hides the bookButton and creates a new form
 function createBookForm(...params){
     bookButton.hidden = true;
-    newBookForm = document.createElement("form");
+    const newBookForm = document.createElement("form");
     libraryContainer.appendChild(newBookForm);
     params.forEach((param) => {
-        formSection = document.createElement("div");
-        formTitle = document.createElement("p");
+        const formSection = document.createElement("div");
+        const formTitle = document.createElement("p");
         formTitle.textContent = param;
-        formInput = document.createElement("input");
+        const formInput = document.createElement("input");
 
         if(param ==="pages"){
             formInput.type = "number";
@@ -51,6 +51,7 @@ function createBookForm(...params){
         newBookForm.appendChild(formSection);
     }
     )
+
     formSubmitButton.innerText = "Submit to Library";
     newBookForm.appendChild(formSubmitButton);
     
