@@ -15,11 +15,17 @@ function Book(title, author,pages, isRead) {
 
 /************************************************* Dom Manipulation ***************************************************/ 
 
-const bookButton = document.querySelector(".new-book-button")
-const libraryContainer = document.querySelector(".button-container")
+const bookButton = document.querySelector(".new-book-button");
+const libraryContainer = document.querySelector(".button-container");
+const formSubmitButton = document.createElement("button");
 
 bookButton.addEventListener("click", () =>{
     createBookForm("title", "author", "pages");
+})
+
+formSubmitButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log(e);
 })
 
 /************************************************* Helper Functions ***************************************************/ 
@@ -33,18 +39,18 @@ function createBookForm(...params){
         formTitle = document.createElement("p");
         formTitle.textContent = param;
         formInput = document.createElement("input");
+
         if(param ==="pages"){
-            formInput.type = "number"
+            formInput.type = "number";
         } else {
             formInput.type = "text";
         }
-        
+
         formSection.appendChild(formTitle);
         formSection.appendChild(formInput);
         newBookForm.appendChild(formSection);
     }
     )
-    formSubmitButton = document.createElement("button");
     formSubmitButton.innerText = "Submit to Library";
     newBookForm.appendChild(formSubmitButton);
     
