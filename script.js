@@ -19,15 +19,30 @@ const bookButton = document.querySelector(".new-book-button")
 const libraryContainer = document.querySelector(".button-container")
 
 bookButton.addEventListener("click", () =>{
-    createBookForm();
+    createBookForm("title", "author", "pages");
 })
 
 /************************************************* Helper Functions ***************************************************/ 
 // Hides the bookButton and creates a new form
-function createBookForm(){
+function createBookForm(...params){
     bookButton.hidden = true;
     newBookForm = document.createElement("form");
     libraryContainer.appendChild(newBookForm);
+    params.forEach((param) => {
+        formSection = document.createElement("div");
+        formTitle = document.createElement("p");
+        formTitle.textContent = param;
+        formInput = document.createElement("input");
+        formInput.type == "text";
+        formSection.appendChild(formTitle);
+        formSection.appendChild(formInput);
+        newBookForm.appendChild(formSection);
+    }
+    )
+    formSubmitButton = document.createElement("button");
+    formSubmitButton.innerText = "Submit to Library";
+    newBookForm.appendChild(formSubmitButton);
+    
 }
 
 // Takes User Input and adds it to myLibrary Arr
