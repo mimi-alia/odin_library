@@ -33,7 +33,12 @@ function createBookForm(...params){
         formTitle = document.createElement("p");
         formTitle.textContent = param;
         formInput = document.createElement("input");
-        formInput.type == "text";
+        if(param ==="pages"){
+            formInput.type = "number"
+        } else {
+            formInput.type = "text";
+        }
+        
         formSection.appendChild(formTitle);
         formSection.appendChild(formInput);
         newBookForm.appendChild(formSection);
