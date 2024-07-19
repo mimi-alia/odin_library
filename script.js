@@ -25,19 +25,7 @@ bookButton.addEventListener("click", () =>{
 })
 
 formSubmitButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    // myLibrary.push(newBookForm);
-    
-
-    for (let i = 0; i < newBookForm.length; i++){
-        myLibrary.push(newBookForm[i]);
-    }
-    // newBookForm.forEach((x) => {
-    //     if(x === input){
-    //         myLibrary.push(x.value);
-    //     }
-    // })
-
+    addBookToLibrary(e);
 
 })
 
@@ -72,8 +60,19 @@ function createBookForm(...params){
 }
 
 // Takes User Input and adds it to myLibrary Arr
-function addBookToLibrary(){
+function addBookToLibrary(e){
+    e.preventDefault();
 
+    const newBook = {};
+
+    for (let i = 0; i < newBookForm.length; i++){
+
+        if (newBookForm[i].localName === "input"){
+            newBook[`${newBookForm[i].id}`] = newBookForm[i].value;
+        }
+    }
+    
+    myLibrary.push(newBook)
 }
 
 //Displays objects in myLibrary arr to the dom (in a table? a grid?)
