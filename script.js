@@ -22,9 +22,8 @@ const newBookForm = document.createElement("form");
 const libraryViewer = document.createElement("div");
 
 
-bookButton.addEventListener("click", () =>{
-    createBookForm("title", "author", "pages");
-})
+bookButton.addEventListener("click", createBookForm("title", "author", "pages")
+)
 
 formSubmitButton.addEventListener("click", (e) => {
     addBookToLibrary(e);
