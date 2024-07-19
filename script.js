@@ -18,6 +18,7 @@ function Book(title, author,pages, isRead) {
 const bookButton = document.querySelector(".new-book-button");
 const libraryContainer = document.querySelector(".button-container");
 const formSubmitButton = document.createElement("button");
+const newBookForm = document.createElement("form");
 
 bookButton.addEventListener("click", () =>{
     createBookForm("title", "author", "pages");
@@ -25,21 +26,34 @@ bookButton.addEventListener("click", () =>{
 
 formSubmitButton.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(e);
+    // myLibrary.push(newBookForm);
+    
+
+    for (let i = 0; i < newBookForm.length; i++){
+        myLibrary.push(newBookForm[i]);
+    }
+    // newBookForm.forEach((x) => {
+    //     if(x === input){
+    //         myLibrary.push(x.value);
+    //     }
+    // })
+
+
 })
 
 /************************************************* Helper Functions ***************************************************/ 
 // Hides the bookButton and creates a new form
 function createBookForm(...params){
     bookButton.hidden = true;
-    const newBookForm = document.createElement("form");
     libraryContainer.appendChild(newBookForm);
     params.forEach((param) => {
         const formSection = document.createElement("div");
-        const formTitle = document.createElement("p");
-        formTitle.textContent = param;
+        const formTitle = document.createElement("label");
+        formTitle.innerText = param + ": ";
+        formTitle.htmlFor = param;
         const formInput = document.createElement("input");
-
+        formInput.name = param;
+        formInput.id = param;
         if(param ==="pages"){
             formInput.type = "number";
         } else {
