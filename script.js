@@ -76,8 +76,13 @@ function addBookToLibrary(e){
     
     myLibrary.push(newBook)
 }
+
 //Displays objects in myLibrary arr to the dom 
 function displayBooksInArr(){
     libraryViewer.innerHTML = JSON.stringify(myLibrary);
     libraryContainer.appendChild(libraryViewer);
 }
+
+//Add a button on each book’s display to remove the book from the library
+
+// Add a button on each book’s display to change its read status
