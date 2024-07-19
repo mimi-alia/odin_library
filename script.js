@@ -19,6 +19,8 @@ const bookButton = document.querySelector(".new-book-button");
 const libraryContainer = document.querySelector(".button-container");
 const formSubmitButton = document.createElement("button");
 const newBookForm = document.createElement("form");
+const libraryViewer = document.createElement("div");
+
 
 bookButton.addEventListener("click", () =>{
     createBookForm("title", "author", "pages");
@@ -26,7 +28,7 @@ bookButton.addEventListener("click", () =>{
 
 formSubmitButton.addEventListener("click", (e) => {
     addBookToLibrary(e);
-
+    displayBooksInArr();
 })
 
 /************************************************* Helper Functions ***************************************************/ 
@@ -74,8 +76,8 @@ function addBookToLibrary(e){
     
     myLibrary.push(newBook)
 }
-
-//Displays objects in myLibrary arr to the dom (in a table? a grid?)
+//Displays objects in myLibrary arr to the dom 
 function displayBooksInArr(){
-
+    libraryViewer.innerHTML = JSON.stringify(myLibrary);
+    libraryContainer.appendChild(libraryViewer);
 }
